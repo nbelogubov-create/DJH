@@ -1,0 +1,426 @@
+/* ========== RESET & GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ========== ПЕРЕМЕННЫЕ ========== */
+:root {
+  --bg: #0a0a0a;
+  --card: rgba(20, 20, 30, 0.95);
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 215, 0, 0.15);
+  --text: #ffffff;
+  --text2: rgba(255, 255, 255, 0.8);
+  --muted: rgba(255, 255, 255, 0.45);
+  --gold: #ffd700;
+  --gold-dark: #d4af37;
+  --grad: linear-gradient(135deg, #ffd700, #d4af37);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== BODY ========== */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(circle at 25% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 14px 70px;
+}
+
+/* ========== reCAPTCHA (маленькая слева) ========== */
+.grecaptcha-badge {
+  visibility: visible !important;
+  opacity: 0.35 !important;
+  bottom: 12px !important;
+  left: 12px !important;
+  right: auto !important;
+  width: 65px !important;
+  border-radius: 35px !important;
+  overflow: hidden !important;
+  transition: all 0.2s ease !important;
+}
+.grecaptcha-badge:hover {
+  width: 200px !important;
+  opacity: 1 !important;
+}
+
+/* ========== КНОПКА АДМИНКИ ========== */
+.admin-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 215, 0, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: 0.2s;
+}
+.admin-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 215, 0, 0.25);
+  border-color: var(--gold);
+}
+.admin-btn i {
+  font-size: 22px;
+  color: var(--gold);
+}
+
+/* ========== КАРТОЧКА ========== */
+.card {
+  max-width: 520px;
+  width: 100%;
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+  animation: fadeInUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== ШАПКА ========== */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.logo {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+}
+.tagline {
+  font-size: 13px;
+  color: var(--text2);
+  letter-spacing: 0.5px;
+}
+.keywords {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0 12px;
+}
+.keyword {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold);
+}
+.work-hours {
+  text-align: center;
+  padding: 6px 14px;
+  background: var(--glass);
+  border-radius: 40px;
+  display: inline-block;
+  width: auto;
+  margin: 0 auto;
+  font-size: 11px;
+  color: var(--text2);
+}
+.work-hours i {
+  color: var(--gold);
+  margin-right: 6px;
+}
+
+/* ========== О КОМПАНИИ ========== */
+.about {
+  background: var(--glass);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text2);
+  border: 1px solid var(--border);
+}
+.about i {
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+/* ========== КОНТАКТЫ ========== */
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.contact:hover {
+  border-color: var(--gold);
+  transform: translateX(4px);
+}
+.contact:active {
+  transform: scale(0.98);
+}
+.contact-icon {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-icon i {
+  font-size: 20px;
+  color: #000;
+}
+.contact-info {
+  flex: 1;
+}
+.contact-label {
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.contact-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ========== КНОПКА TELEGRAM ========== */
+.telegram-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0088cc, #006699);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: 0.2s;
+}
+.telegram-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+.telegram-btn:active {
+  transform: scale(0.98);
+}
+
+/* ========== ФОРМА ========== */
+.form-block {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  margin: 20px 0;
+}
+.form-block h3 {
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-block input,
+.form-block textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 12px;
+  outline: none;
+  transition: 0.2s;
+}
+.form-block input:focus,
+.form-block textarea:focus {
+  border-color: var(--gold);
+}
+.form-block textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.form-block button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border: none;
+  border-radius: 12px;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.form-block button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+
+/* ========== СОЦСЕТИ ========== */
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px 0;
+}
+.soc {
+  width: 48px;
+  height: 48px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+}
+.soc:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.soc:active {
+  transform: scale(0.95);
+}
+
+/* ========== QR-КОД ========== */
+.qr-block {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  text-align: center;
+  margin-top: 16px;
+}
+.qr-img {
+  background: #fff;
+  padding: 10px;
+  border-radius: 16px;
+  display: inline-block;
+}
+.qr-img img {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+.qr-text {
+  font-size: 10px;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* ========== ФУТЕР ========== */
+.footer {
+  text-align: center;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* ========== ТОСТЫ ========== */
+.toast-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: calc(100% - 32px);
+  max-width: 340px;
+}
+.toast {
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 8px;
+  animation: slideIn 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== АДАПТИВ ========== */
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px 60px;
+  }
+  .card {
+    padding: 24px 18px;
+  }
+  .logo {
+    font-size: 28px;
+  }
+  .admin-btn {
+    width: 42px;
+    height: 42px;
+    bottom: 15px;
+    right: 15px;
+  }
+  .admin-btn i {
+    font-size: 18px;
+  }
+}
